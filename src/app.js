@@ -1,14 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import routes from './routes';
 
 const app = express();
-app.use(bodyParser.json());
 
-app.get('/', (req, res) => res.send('Hello World!'));
-app.get('/products', (req, res) => res.send([{
-  name: 'Default product',
-  description: 'product description',
-  price: 100
-}]));
+app.use(bodyParser.json());
+app.use('/', routes);
 
 export default app;
